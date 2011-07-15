@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="1.2" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
+	
+	
+	<application>
+		<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+	</application>
+
+	
+	<converter>
+		<converter-id>cursoConverter</converter-id>
+		<converter-class>br.com.opengti.converter.CursoConverter</converter-class>
+	</converter>
+
+	<navigation-rule>
+		<from-view-id>/*</from-view-id>
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>novoAluno</from-outcome>
+			<to-view-id>/pages/aluno/adicionarAluno.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+		
+			<from-outcome>pages/livro/listarLivros</from-outcome>
+			<to-view-id>/pages/livro/listarLivros.xhtml</to-view-id>
+			<redirect/>
+		
+		</navigation-case>
+		
+	</navigation-rule>
+	
+	
+	
+	
+	
+</faces-config>

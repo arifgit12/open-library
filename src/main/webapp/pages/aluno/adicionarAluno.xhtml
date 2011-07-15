@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+<ui:composition template="../../template/template.xhtml">
+	<ui:define name="corpo">
+		<a4j:form>
+			<rich:panel header="Novo Aluno">
+				
+				<rich:messages />
+				
+				<h:panelGrid id="grid" columns="1" width="100%">
+				
+					<h:outputText value="Nome: " />
+					
+					<h:inputText required="true"
+						requiredMessage="O Campo 'Nome do Livro' e obrigatorio."
+						style="width:270px" value="#{alunoBean.aluno.nome}" />
+						
+					<h:outputText value="Curso: " />
+					
+					<rich:comboBox width="270px" value="#{alunoBean.aluno.curso}" converter="cursoConverter">
+						<f:selectItems value="#{alunoBean.cursos}" /> 
+					</rich:comboBox>
+					
+					<h:outputText value="Periodo: " />
+					
+					<h:inputText maxlength="2" style="width:30px"
+						value="#{alunoBean.aluno.periodo}" />
+						
+					<h:outputText value="Matricula: " />
+					
+					<h:inputText value="#{alunoBean.aluno.matricula}" />
+								
+					<h:outputText value="E-br.com.opengti.mail: " />
+					
+					<h:inputText  style="width:270px"
+						value="#{alunoBean.aluno.email}" />
+						
+					<h:outputText value="Login: " />
+					
+					<h:inputText
+						required="true"
+						requiredMessage="O Campo 'Login' e obrigatorio."
+						style="width:150px"
+						value="#{alunoBean.aluno.login}" />
+					
+					<h:outputText value="Senha: " />
+					
+					<h:inputSecret
+						required="true"
+						requiredMessage="O Campo 'Senha' e obrigatorio."
+					    style="width:150px"
+						value="#{alunoBean.aluno.senha}" />
+				
+				</h:panelGrid>
+				
+					<a4j:commandButton value="Adicionar"
+						style="width:100px;height:40px" actionListener="#{alunoBean.save}"
+						reRender="grid" />
+					<a4j:commandButton value="Limpar" style="width:100px;height:40px" />
+					
+			</rich:panel>
+		</a4j:form>
+	</ui:define>
+</ui:composition>
+</html>

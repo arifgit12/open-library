@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+	<f:view>
+
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+		<a4j:form>
+			<rich:panel id="loginpanel" header="Area do Aluno">
+				<h:panelGrid  columns="1" rendered="${sessionScope['user'] == null}">
+
+					<rich:messages></rich:messages>
+
+					<h:outputText value="Login" />
+
+					<h:inputText maxlength="20" size="20" style="width: 110px"
+						value="#{loginBean.login}" />
+
+					<h:outputText value="Senha" />
+
+					<h:inputSecret value="#{loginBean.senha}" />
+
+					<a4j:commandButton value="Entrar" action="#{loginBean.login}" reRender="loginpanel" />
+				</h:panelGrid>
+				
+				
+				<h:panelGrid  columns="1" rendered="${sessionScope['user'] != null}">
+
+
+					<a4j:commandLink value="Alterar Senha"></a4j:commandLink>
+					<a4j:commandLink value="Logout" action="#{loginBean.logout}" reRender="loginpanel"></a4j:commandLink>
+
+
+				</h:panelGrid>
+				
+
+			</rich:panel>
+
+
+			<rich:panel header="Menu">
+
+				<table>
+					<ul class="menu_body">
+						<tr>
+							<li>
+
+								<td><img src="images/menuLivro.png" align="middle"></img>
+							</td>
+								<td><a4j:commandLink value="Livros" action="pages/livro/listarLivros"></a4j:commandLink>
+							</td></li>
+						</tr>
+						<tr>
+							<li>
+
+								<td><img src="images/novoAluno.png" align="middle"></img>
+							</td>
+								<td><a4j:commandLink value="Registrar-se"
+										action="novoAluno"></a4j:commandLink>
+							</td></li>
+						</tr>
+						<tr>
+							<li>
+
+								<td>
+									<img src="images/menuAbout.png" align="middle"></img>
+								</td>
+								<td>
+									<a4j:commandLink  id="link" value="Sobre" action="gotoSobre">
+										<rich:componentControl for="panel" attachTo="link" operation="show" event="onclick"/>
+									</a4j:commandLink>
+								</td>
+							</li>
+						</tr>
+
+
+					</ul>
+				</table>
+			</rich:panel>
+			<rich:panel id="menuAdmin" header="Menu de Administrador"
+				rendered="${sessionScope['user'].admin}">
+
+				<table>
+					<ul class="menu_body">
+						<tr>
+
+
+							<td><img src="images/menuLivro.png" align="middle"></img>
+							</td>
+							<td><rich:dropDownMenu styleClass="a"
+									style="border:0px solid" value="Livro" direction="bottom-right"
+									jointPoint="tr" hideDelay="10" showDelay="1">
+									<rich:menuItem value="Adicionar" action="gotoAdicionarLivro">
+										<f:facet name="icon">
+											<h:graphicImage value="images/adicionar.png" />
+										</f:facet>
+									</rich:menuItem>
+									<rich:menuItem value="Alterar">
+										<f:facet name="icon">
+											<h:graphicImage value="images/alterar.png" />
+										</f:facet>
+									</rich:menuItem>
+									<rich:menuItem value="Remover">
+										<f:facet name="icon">
+											<h:graphicImage value="images/cancelar.png" />
+										</f:facet>
+									</rich:menuItem>
+								</rich:dropDownMenu>
+							</td>
+
+						</tr>
+						<tr>
+
+
+							<td><img src="images/menuAdministracao.png" align="middle"></img>
+							</td>
+							<td><rich:dropDownMenu styleClass="a"
+									style="border:0px solid" value="Aluno" direction="bottom-right"
+									jointPoint="tr" hideDelay="10" showDelay="1">
+									<rich:menuItem value="Adicionar" action="gotoAdicionarLivro">
+										<f:facet name="icon">
+											<h:graphicImage value="images/adicionar.png" />
+										</f:facet>
+									</rich:menuItem>
+									<rich:menuItem value="Alterar">
+										<f:facet name="icon">
+											<h:graphicImage value="images/alterar.png" />
+										</f:facet>
+									</rich:menuItem>
+									<rich:menuItem value="Remover">
+										<f:facet name="icon">
+											<h:graphicImage value="images/cancelar.png" />
+										</f:facet>
+									</rich:menuItem>
+									<rich:menuItem value="Liberar Acesso">
+										<f:facet name="icon">
+											<h:graphicImage value="images/cancelar.png" />
+										</f:facet>
+									</rich:menuItem>
+								</rich:dropDownMenu>
+							</td>
+
+						</tr>
+						<tr>
+
+
+							<td><img src="images/menuCurso.png" align="middle"></img>
+							</td>
+							<td><rich:dropDownMenu styleClass="a"
+									style="border:0px solid" value="Curso" direction="bottom-right"
+									jointPoint="tr" hideDelay="10" showDelay="1">
+									<rich:menuItem value="Adicionar" action="gotoNovoCurso">
+										<f:facet name="icon">
+											<h:graphicImage value="images/adicionar.png" />
+										</f:facet>
+									</rich:menuItem>
+									<rich:menuItem value="Alterar">
+										<f:facet name="icon">
+											<h:graphicImage value="images/alterar.png" />
+										</f:facet>
+									</rich:menuItem>
+									<rich:menuItem value="Remover">
+										<f:facet name="icon">
+											<h:graphicImage value="images/cancelar.png" />
+										</f:facet>
+									</rich:menuItem>
+									<rich:menuItem value="Liberar Acesso">
+										<f:facet name="icon">
+											<h:graphicImage value="images/cancelar.png" />
+										</f:facet>
+									</rich:menuItem>
+								</rich:dropDownMenu>
+							</td>
+
+						</tr>
+
+
+					</ul>
+				</table>
+			</rich:panel>
+			<rich:panel header="Busca Rapida">
+				<h:inputText maxlength="20" size="20" style="width: 110px" />
+				<a4j:commandButton value=">" />
+			</rich:panel>
+
+			<rich:modalPanel id="panel" width="350" height="100">
+				<f:facet name="header">
+					<h:panelGroup>
+						<h:outputText value="Modal Panel"></h:outputText>
+					</h:panelGroup>
+				</f:facet>
+				<f:facet name="controls">
+					<h:panelGroup>
+						<h:graphicImage value="/jBiblioteca/images/cancelar.png"
+							styleClass="hidelink" id="hidelink" />
+						<rich:componentControl for="panel" attachTo="hidelink"
+							operation="hide" event="onclick" />
+					</h:panelGroup>
+				</f:facet>
+				<h:outputText
+					value="This panel is called using Component Control Component"></h:outputText>
+				<br />
+				<h:outputText
+					value="Closure link (X) works also through Component Control"></h:outputText>
+			</rich:modalPanel>
+
+
+
+		</a4j:form>
+
+	</f:view>
+
+
+</ui:fragment>

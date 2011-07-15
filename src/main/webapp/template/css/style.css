@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+/* CSS Document */
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background: url('bg.gif') repeat-x repeat-y;
+}
+
+ul,li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.menu_head {
+	border: 1px solid #998675;
+}
+
+.menu_body {
+	margin-top: 0px;
+	margin-left: 0px;
+	display: block;
+	width: 140px;
+}
+
+.menu_body li {
+	background: #FFFFFF;
+}
+
+a {
+	color: #493e3b;
+	text-decoration: none;
+	padding: 10px;
+	display: block;
+}
+
+a:hover {
+	padding: 10px;
+	font-weight: bold;
+}
+
+.tabelaSemBorda {
+	border: 0px !important;
+	padding-left: 1em;
+}
+
+table.tabelaSemBorda {
+	border: none;
+}
+
+table.tabelaSemBorda td {
+	border: none ;
+}
+
+.rich-dt-table {
+	border: 0px !important;
+	padding-left: 1em;
+}
+
+.footerText {
+
+	font-family: verdana !important;
+	font-size: xx-small !important;
+	color: black !important;
+	font-style: normal !important;
+	
+}
+
+
+
+#footer {
+ clear: both;
+ position: relative;
+ z-index: 10;
+ height: 3em;
+ margin-top: -3em;
+}
+
+

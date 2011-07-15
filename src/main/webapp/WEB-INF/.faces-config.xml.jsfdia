@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#*" PATH="/*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:0" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="index::#index.xhtml" NAME="output"
+    PATH="/index.xhtml" TARGET="rules:#index.xhtml" TITLE="index" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="novoAluno::#pages#aluno#adicionarAluno.xhtml" NAME="output1"
+    PATH="/pages/aluno/adicionarAluno.xhtml"
+    TARGET="rules:#pages#aluno#adicionarAluno.xhtml" TITLE="novoAluno" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="pages#livro#listarLivros::#pages#livro#listarLivros.xhtml"
+    NAME="output2" PATH="/pages/livro/listarLivros.xhtml"
+    TARGET="rules:#pages#livro#listarLivros.xhtml"
+    TITLE="pages/livro/listarLivros" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
+  SHAPE="272,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#livro#listarLivros.xhtml"
+  PATH="/pages/livro/listarLivros.xhtml" SHAPE="272,321,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#aluno#adicionarAluno.xhtml"
+  PATH="/pages/aluno/adicionarAluno.xhtml" SHAPE="272,209,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>
