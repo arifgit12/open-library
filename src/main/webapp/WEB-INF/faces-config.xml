@@ -4,9 +4,32 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
 	
 	
+	<managed-bean>
+	
+		<managed-bean-name>indexBean</managed-bean-name>
+		<managed-bean-class>br.com.opengti.managedbean.IndexMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	
+	</managed-bean>
+	
+	<managed-bean>
+	
+		<managed-bean-name>livroBean</managed-bean-name>
+		<managed-bean-class>br.com.opengti.managedbean.LivroMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	
+	</managed-bean>
+	
+	<managed-bean>
+	
+		<managed-bean-name>loginBean</managed-bean-name>
+		<managed-bean-class>br.com.opengti.managedbean.LoginMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	
+	</managed-bean>
+	
 	<application>
 		<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
-		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
 	</application>
 
 	

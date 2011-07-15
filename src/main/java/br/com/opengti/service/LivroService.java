@@ -2,12 +2,12 @@ package br.com.opengti.service;
 
 import java.util.List;
 
-import br.com.opengti.domain.Livro;
+import br.com.opengti.domain.Book;
 
 public interface LivroService {
 
-	public String saveBook(Livro livro);
+	public String saveBook(Book livro);
 
-	public List<Livro>listBook(Integer nroDestaques);
+	public List<Book>listBook(Integer nroDestaques);
 
 }

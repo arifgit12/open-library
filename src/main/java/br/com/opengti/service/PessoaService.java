@@ -1,11 +1,11 @@
 package br.com.opengti.service;
 
-import br.com.opengti.domain.Pessoa;
+import br.com.opengti.domain.Person;
 
 public interface PessoaService {
 
-	public void save(Pessoa aluno);
+	public void save(Person aluno);
 
-	public Pessoa getPessoaByLoginAndSenha(String login, String senha);
+	public Person getPessoaByLoginAndSenha(String login, String senha);
 	
 }

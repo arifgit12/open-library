@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-import br.com.opengti.domain.Pessoa;
+import br.com.opengti.domain.Person;
 import br.com.opengti.service.PessoaService;
 import br.com.opengti.service.impl.LivroServiceImpl;
 import br.com.opengti.util.ContextUtil;
@@ -30,7 +30,7 @@ public class LoginMB {
 	 * View Objects / Params
 	 */
 
-	private Pessoa pessoa = new Pessoa();
+	private Person pessoa = new Person();
 	private String login;
 	private String senha;
 
@@ -55,12 +55,12 @@ public class LoginMB {
 		logger.info("Login: " + login);
 		logger.info("Senha: " + senha);
 
-		Pessoa aluno = (Pessoa) pessoaService.getPessoaByLoginAndSenha(login,senha);
+		Person aluno = (Person) pessoaService.getPessoaByLoginAndSenha(login,senha);
 
 		if (aluno == null) {	
 			facesContext.addMessage("Dados inválidos!",ContextUtil.createMessage("Dados Inválidos"));		
 		} else {
-			logger.info(aluno.getNome() + " Logado");
+			logger.info(aluno.getName() + " Logado");
 			facesContext.getExternalContext().getSessionMap().put("user", aluno);
 		}
 
@@ -74,10 +74,10 @@ public class LoginMB {
 
 		
 
-		Pessoa pessoa = (Pessoa) facesContext.getExternalContext()
+		Person pessoa = (Person) facesContext.getExternalContext()
 				.getSessionMap().get("user");
 
-		logger.info(pessoa.getNome() + " Deslogado");
+		logger.info(pessoa.getName() + " Deslogado");
 
 		HttpSession session = (HttpSession) facesContext.getExternalContext()
 				.getSession(false);

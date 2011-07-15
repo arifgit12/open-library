@@ -3,11 +3,7 @@ package br.com.opengti.store.impl;
 import java.util.List;
 import java.util.Map;
 
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-
-import br.com.opengti.domain.Pessoa;
+import br.com.opengti.domain.Person;
 import br.com.opengti.store.PessoaStore;
 
 /**
@@ -16,57 +12,59 @@ import br.com.opengti.store.PessoaStore;
  * @since Jun 30, 2011 3:57:22 PM
  * 
  */
-public class PessoaStoreImpl extends HibernateDaoSupport implements PessoaStore {
+public class PessoaStoreImpl implements PessoaStore {
 
 
-	public void persist(Pessoa t) {
+	public void persist(Person t) {
 		// TODO Auto-generated method stub
 
 	}
 
 
-	public Pessoa get(Object primaryKey) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public Pessoa get(Map<String, Object> params) {
-		
-
-		Criteria c = getSession().createCriteria(br.com.opengti.domain.Pessoa.class);
-		
-		if (params.get("login") != null){
-			c.add(Restrictions.eq("login", params.get("login")));
-		}
-		
-		if (params.get("senha") != null){
-			c.add(Restrictions.eq("senha", params.get("senha")));
-		}
-
-		try{
-			Pessoa pessoa = (Pessoa) c.uniqueResult();
-			return pessoa;
-		}catch(Exception e){
-			return null;
-		}
-		
-	}
-
-
-	public List<Pessoa> list() {
+	public Person get(Object primaryKey) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	public List<Pessoa> list(Map<String, Object> params) {
+	public Person get(Map<String, Object> params) {
+		
+
+//	Criteria c = getSession().createCriteria(br.com.opengti.domain.Pessoa.class);
+//		
+//		if (params.get("login") != null){
+//			c.add(Restrictions.eq("login", params.get("login")));
+//		}
+//		
+//		if (params.get("senha") != null){
+//			c.add(Restrictions.eq("senha", params.get("senha")));
+//		}
+//
+//		try{
+//			Pessoa pessoa = (Pessoa) c.uniqueResult();
+//			return pessoa;
+//		}catch(Exception e){
+//			return null;
+//		}
+		
+		return null;
+		
+	}
+
+
+	public List<Person> list() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	public Pessoa merge(Pessoa t) {
+	public List<Person> list(Map<String, Object> params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public Person merge(Person t) {
 		// TODO Auto-generated method stub
 		return null;
 	}

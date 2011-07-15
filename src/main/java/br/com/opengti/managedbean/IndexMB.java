@@ -3,38 +3,34 @@ package br.com.opengti.managedbean;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.java.Log;
-import br.com.opengti.domain.Livro;
+import br.com.opengti.domain.Book;
 import br.com.opengti.service.LivroService;
-import br.com.opengti.util.ContextUtil;
+
+import com.google.inject.Inject;
 
 @Log
 public class IndexMB {
 
-	private List<Livro> destaques;
+	private List<Book> destaques;
 	
-	@Setter
+	@Inject
 	private LivroService livroService;
 	
 	
 	public IndexMB() {
 		log.info("Criando ManagedBean Novo");
 		
-		livroService = (LivroService) ContextUtil.getApplicationContext().getBean("livroService");
-		destaques = loadDestaques(12);
+
+		
 	}
 	
-	private List<Livro> loadDestaques(Integer nroDestq){
-		
-		return livroService.listBook(nroDestq);
-		
-	}
 
-	public final List<Livro> getDestaques() {
+
+	public final List<Book> getDestaques() {
 		log.info("Reading Destaques");
-		
+		destaques = livroService.listBook(10);
 		if (destaques == null){
 			log.info("Destaques == null");
 			return new ArrayList();
@@ -43,9 +39,16 @@ public class IndexMB {
 		return destaques;
 	}
 
-	public final void setDestaques(List<Livro> destaques) {
+	public final void setDestaques(List<Book> destaques) {
 		this.destaques = destaques;
 	}
 
+	public void setLivroService(LivroService livroService) {
+		log.info("Teste Inject");
+		this.livroService = livroService;
+	}
 
+
+	
+	
 }

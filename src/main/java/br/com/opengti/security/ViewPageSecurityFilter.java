@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import br.com.opengti.domain.Funcionario;
-import br.com.opengti.domain.Pessoa;
+import br.com.opengti.domain.Librarian;
+import br.com.opengti.domain.Person;
 
 /**
  * Servlet Filter implementation class ViewPageSecurityFilter

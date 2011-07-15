@@ -8,9 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
-import org.hibernate.validator.Email;
-import org.hibernate.validator.Length;
-import org.hibernate.validator.NotEmpty;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import br.com.caelum.stella.bean.validation.CPF;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,7 +27,7 @@ public class Person {
 	@Getter @Setter @NotEmpty 
 	private String name;
 	
-	@Getter @Setter @NotEmpty @Length(min=8,max=8)
+	@Getter @Setter @NotEmpty
 	private String username;
 	
 	@Getter @Setter @NotEmpty

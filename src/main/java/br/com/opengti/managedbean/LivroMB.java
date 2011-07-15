@@ -9,16 +9,16 @@ import org.richfaces.event.UploadEvent;
 import org.richfaces.model.UploadItem;
 
 import br.com.opengti.domain.BookImage;
-import br.com.opengti.domain.Livro;
+import br.com.opengti.domain.Book;
 import br.com.opengti.service.LivroService;
 import br.com.opengti.service.impl.LivroServiceImpl;
 
 public class LivroMB {
 
-	private Livro livro = new Livro();
+	private Book livro = new Book();
 	private BookImage bookImage = new BookImage();
 	private LivroService livroService = new LivroServiceImpl();
-	private List<Livro> listaLivros;
+	private List<Book> listaLivros;
 
 	
 	public String save() {	
@@ -28,7 +28,7 @@ public class LivroMB {
 		if(result.equals("saveSuccess")){
 			
 			bookImage = new BookImage();
-			livro = new Livro();
+			livro = new Book();
 			
 			FacesMessage message = new FacesMessage("Livro adicionado com sucesso!");
 			FacesContext.getCurrentInstance().addMessage("Livro adicionado com sucesso!", message);
@@ -53,11 +53,11 @@ public class LivroMB {
 
 	}
 
-	public final Livro getLivro() {
+	public final Book getLivro() {
 		return livro;
 	}
 
-	public final void setLivro(Livro livro) {
+	public final void setLivro(Book livro) {
 		this.livro = livro;
 	}
 

@@ -8,9 +8,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class ContextUtil {
 	
@@ -25,13 +22,7 @@ public class ContextUtil {
 		
 	}
 	
-	public static ApplicationContext getApplicationContext(){
-		 ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-			        "applicationContext.xml"
-		    );
 
-		 return applicationContext;
-	}
 	
 	public static FacesMessage createMessage(String message){
 		return new FacesMessage(message);

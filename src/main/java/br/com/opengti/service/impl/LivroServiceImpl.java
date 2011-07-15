@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 import lombok.Setter;
-import br.com.opengti.domain.Livro;
+import br.com.opengti.domain.Book;
 import br.com.opengti.service.LivroService;
 import br.com.opengti.store.LivroStore;
 import br.com.opengti.util.ImageUtil;
@@ -18,7 +18,7 @@ public class LivroServiceImpl implements LivroService {
 	@Setter
 	private LivroStore livroStore;
 	
-	public String saveBook(Livro livro){
+	public String saveBook(Book livro){
 		
 		try{
 			livro.setImagePath(ImageUtil.saveImage(livro.getBookImage()));
@@ -34,7 +34,7 @@ public class LivroServiceImpl implements LivroService {
 		
 	}
 
-	public List<Livro> listBook(Integer nroDestaques) {
+	public List<Book> listBook(Integer nroDestaques) {
 		
 		logger.info("Variable LivroStore is null? " + livroStore);
 		
@@ -43,7 +43,7 @@ public class LivroServiceImpl implements LivroService {
 		
 		params.put("maxResult", nroDestaques);
 		
-		List<Livro> result = livroStore.list(params);
+		List<Book> result = livroStore.list(params);
 		
 		
 		

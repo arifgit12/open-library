@@ -9,7 +9,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import br.com.opengti.domain.Pessoa;
+import br.com.opengti.domain.Person;
 
 
 
@@ -18,7 +18,7 @@ public class EnviarEmail {
 	
 	private EmailConfiguration email;
 	
-	public void cadastroAluno(Pessoa aluno) throws MessagingException, UnsupportedEncodingException{
+	public void cadastroAluno(Person aluno) throws MessagingException, UnsupportedEncodingException{
 
 			email = getConfiguration(aluno.getEmail());
 
@@ -28,7 +28,7 @@ public class EnviarEmail {
 			MimeMessage message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("gabrielcastilho.cardelli@gmail.com", "Gabriel Cardelli"));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(
-					aluno.getEmail(), aluno.getNome()));
+					aluno.getEmail(), aluno.getName()));
 			message.setSubject("Cadastro");
 			message.setContent("Teste", "text/plain");
 			Transport.send(message);

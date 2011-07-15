@@ -8,7 +8,8 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-import org.hibernate.validator.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity 
@@ -16,10 +17,12 @@ import org.hibernate.validator.NotNull;
 
 public class Customer extends Person {
 	
-	@Column(unique=true)@NotNull @Getter @Setter private Long matricula;
+	@Column(unique=true) @NotEmpty @Getter @Setter 
+	private Long matricula;
 	
 	
-	@NotNull @Getter @Setter private Integer periodo;
+	@NotEmpty @Getter @Setter 
+	private Integer periodo;
 
 
 }

@@ -10,13 +10,12 @@ import javax.faces.model.SelectItem;
 import lombok.Getter;
 import lombok.Setter;
 
-import org.springframework.transaction.annotation.Transactional;
 
-import br.com.opengti.domain.Aluno;
-import br.com.opengti.domain.Curso;
-import br.com.opengti.domain.Pessoa;
+
+import br.com.opengti.domain.Customer;
+import br.com.opengti.domain.Person;
 import br.com.opengti.mail.EnviarEmail;
-import br.com.opengti.service.CursoService;
+
 import br.com.opengti.service.PessoaService;
 import br.com.opengti.util.ContextUtil;
 
@@ -41,7 +40,7 @@ public class AlunoMB {
 	
 	@Getter 
 	@Setter
-	private Aluno aluno;
+	private Customer aluno;
 	
 	
 	
@@ -52,9 +51,7 @@ public class AlunoMB {
 	@Setter
 	private PessoaService pessoaService;
 	
-	@Setter
-	private CursoService cursoService;
-	
+
 	
 	
 	/*
@@ -69,10 +66,9 @@ public class AlunoMB {
 	 * Action Methods
 	 */
 	
-	@Transactional
 	public void save(ActionEvent event){
 		try{
-			pessoaService.save(aluno);
+		//	pessoaService.save(aluno);
 			facesContext.addMessage("sucesso", ContextUtil.createMessage("Cadastrado realizado com sucesso."));
 			facesContext.addMessage("desbloquiar", ContextUtil.createMessage("Para desbloquiar sua conta veja o email que lhe foi enviado."));
 			new EnviarEmail().cadastroAluno(aluno);
@@ -86,22 +82,6 @@ public class AlunoMB {
 	
 	
 
-	/*
-	 * Gets and Sets
-	 */
-	
-	public List<SelectItem> getCursos() {
-		
-		List<Curso> cursosTemp = cursoService.list();		
-		List<SelectItem> cursos = new ArrayList<SelectItem>();	
-		
-		for(Curso curso : cursosTemp){		
-			cursos.add(new SelectItem(curso));	
-		}
-		
-		return cursos;
-		
-	}
 
 
 

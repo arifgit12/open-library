@@ -1,6 +1,7 @@
 package br.com.opengti.store;
 
-import br.com.opengti.domain.Pessoa;
+import br.com.opengti.domain.Person;
+
 
 /**
  * 
@@ -8,6 +9,6 @@ import br.com.opengti.domain.Pessoa;
  * @since  Jun 30, 2011 3:59:39 PM 
  *
  */
-public interface PessoaStore extends Store<Pessoa> {
+public interface PessoaStore extends Store<Person> {
 
 }
