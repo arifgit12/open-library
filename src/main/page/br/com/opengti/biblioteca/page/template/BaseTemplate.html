@@ -1,0 +1,76 @@
+<html
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+	<title>Testando template</title>
+	<link REL=StyleSheet HREF="template/css/theme.css" TYPE="text/css" />
+	<script type="text/javascript" src="template/js/jquery.js"></script>
+	<script type="text/javascript" src="template/js/jqueryui.js"></script>
+	<script>
+		$(function() {
+			$( "#accordion" ).accordion();
+		});
+	</script>
+</head>
+<body>
+	
+
+<table align="center" border="0">
+
+	<tr>
+		<td colspan="2"><img src="template/css/images/logo.jpg" /></td>
+	</tr>
+	
+	<tr>
+		<td width="160px">
+		
+			<div class="demo">
+
+		<div id="accordion">
+			<h3>
+				<a href="#">Login</a>
+			</h3>
+			<div>
+				<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget,
+					quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida
+					in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros.
+					Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum
+					a velit eu ante scelerisque vulputate.</p>
+			</div>
+			<h3>
+				<a href="#">Painel</a>
+			</h3>
+			<div>
+				<p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum
+					sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris
+					turpis porttitor velit, faucibus interdum tellus libero ac justo.
+					Vivamus non quam. In suscipit faucibus urna.</p>
+			</div>
+			
+		</div>
+	</div>
+		
+		
+		</td>
+		<td width="800px">
+		
+		
+		<wicket:child />
+		
+		</td>
+	</tr>
+	
+	<tr>
+		<td colspan="2">Em desenvolvimento</td>
+	</tr>
+
+
+</table>
+
+	
+
+
+
+	
+	
+</body>
+</html>
