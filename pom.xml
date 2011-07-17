@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.opengti</groupId>
-	<artifactId>OpenBiblioteca</artifactId>
+	<artifactId>OpenLibrary</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<!-- TODO project name -->
@@ -24,14 +24,7 @@
 		<log4j.version>1.2.14</log4j.version>
 	</properties>
 	<dependencies>
-		<!-- WICKET DEPENDENCIES -->
-		<dependency>
-			<groupId>org.apache.wicket</groupId>
-			<artifactId>wicket</artifactId>
-			<version>${wicket.version}</version>
-		</dependency>
-		<!-- OPTIONAL <dependency> <groupId>org.apache.wicket</groupId> <artifactId>wicket-extensions</artifactId> 
-			<version>${wicket.version}</version> </dependency> -->
+
 
 		<!-- LOGGING DEPENDENCIES - LOG4J -->
 		<dependency>
@@ -39,6 +32,13 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
+		
+			<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -53,25 +53,31 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- WICKET -->
+
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket</artifactId>
+			<version>${wicket.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
 			<artifactId>wicket-guice</artifactId>
 			<version>1.4.17</version>
 		</dependency>
-<dependency>
-    <groupId>hibernate</groupId>
-    <artifactId>hibernate-entitymanager</artifactId>
-    <version>3.4.0.GA</version>
-</dependency>
-
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>5.1.17</version>
-</dependency>
 
 
-<!-- Lombok -->
+		<!-- MYSQL CONNECTOR -->
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.17</version>
+		</dependency>
+
+
+		<!-- Lombok -->
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -79,27 +85,39 @@
 			<version>0.10.0-RC1</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
+		<!-- Caelum Stella -->
+
 		<dependency>
 			<groupId>br.com.caelum.stella</groupId>
 			<artifactId>caelum-stella-bean-validation</artifactId>
 			<version>2.0-beta1</version>
 		</dependency>
 
-	
-<dependency>
-		
+		<!-- Hibernate -->
+
+		<dependency>
+			<groupId>hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.4.0.GA</version>
+		</dependency>
+
+		<dependency>
+
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>4.2.0.Final</version>
 		</dependency>
-	
 
-<dependency>
-    <groupId>org.apache.tomcat</groupId>
-    <artifactId>tomcat-servlet-api</artifactId>
-    <version>7.0.16</version>
-</dependency>
+		<!-- Servlet API -->
+
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-servlet-api</artifactId>
+			<version>7.0.16</version>
+		</dependency>
+
+		<!-- Google Guice -->
 
 		<dependency>
 			<groupId>com.google.inject</groupId>
@@ -130,6 +148,26 @@
 			<resource>
 				<filtering>false</filtering>
 				<directory>src/main/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/page</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/config</directory>
 				<includes>
 					<include>**</include>
 				</includes>

@@ -1,0 +1,145 @@
+<html
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+<title>OpenLibrary</title>
+
+<link rel=StyleSheet href="template/css/theme.css" type="text/css" />
+
+<script type="text/javascript" src="template/js/jquery.js"></script>
+<script type="text/javascript" src="template/js/jqueryui.js"></script>
+
+<script>
+	jQuery.preloadImages = function()
+	{
+		 for(var i = 0; i<arguments.length; i++)
+		 jQuery("<img>").attr("src", arguments[i]);
+	}
+
+	jQuery.preloadImages("template/css/images/key.gif", "template/css/images/keyo.gif", "rss.gif", "rsso.gif", "sel.gif", "selo.gif");
+
+	jQuery(document).ready(function(){
+
+		$("#iconbar li a").hover(function(){
+				var iconName = $(this).children("img").attr("src");
+				var origen = iconName.split(".gif")[0];
+			//	$(this).children("img").attr({src: "" + origen + "o.gif"});
+				$(this).animate({ width: "90px" }, {queue:false, duration:"normal"} );
+				$(this).children("span").animate({opacity: "show"}, "fast");
+		},function(){
+				var iconName = $(this).children("img").attr("src");
+				var origen = iconName.split("o.")[0];
+			//	$(this).children("img").attr({src: "" + origen + ".gif"});
+				$(this).animate({ width: "32px" }, {queue:false, duration:"normal"} );
+				$(this).children("span").animate({opacity: "hide"}, "fast");
+		});
+	});
+</script>
+
+<style type="text/css">
+#iconbar {
+	margin-left: -40px;
+}
+
+#iconbar li {
+	float: left;
+	position: relative;
+	overflow: hidden;
+	margin-right: 20px;
+	background: #FFFFFF ;
+	
+}
+
+#textPage {
+	float: left;
+	position: relative;
+	overflow: hidden;
+	margin-right: 20px;
+	background: #FFFFFF;
+	border: 1px dashed #4682B4;
+}
+
+#iconbar a {
+	text-decoration: none;
+	outline: none;
+	color: #d00000;
+	display: block;
+	width: 32px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+#iconbar span {
+
+	position: absolute;
+	display: none;
+
+	color: #409BED;
+	padding-left: 10px;
+	margin-top:9px;
+	font-family: verdana;
+	font-size: 10px;
+}
+
+</style>
+</head>
+<body>
+	
+
+	<table width="900px" align="center" border="0">
+		
+		<tr>
+		
+			<td width="200px"><img src="http://www.cod.edu/library/global/images/logos/libraryLogo.gif" /></td>
+			<td width="700px"><ul id="iconbar">
+					<li>
+						<a href="#" wicket:id="linkHomePage">  
+							<img src="template/css/images/home.png" alt="" /> 
+							<span>Principal</span> 
+						</a>
+					</li>
+					<li><a href="#" wicket:id="linkBooksPage"> <img src="template/css/images/book.png" alt="" />
+							<span>Livros </span> </a></li>
+							
+							<li><a href="#" wicket:id="linkLoginPage"> <img src="template/css/images/login.png" alt="" />
+							<span>Log in </span> </a></li>
+					
+				</ul>
+				
+				
+				
+			</td>
+		
+		</tr>
+		
+
+		<tr>
+
+			<td colspan="2"   width="800px" valign="top">
+				 <wicket:child />
+			</td>
+		</tr>
+		
+		<tr>
+		
+			<td colspan="2" style="font-size:10px;font-family: verdana;text-align: center">
+				<br>
+			
+				OpenSource Library - version 0.0.1
+			
+			
+			</td>
+		
+		</tr>
+
+
+
+	</table>
+
+
+
+
+
+
+
+</body>
+</html>

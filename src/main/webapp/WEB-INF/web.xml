@@ -3,14 +3,14 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 	version="2.4">
 
-	<display-name>OpenBiblioteca</display-name>
+	<display-name>OpenLibrary</display-name>
 
 	<filter>
 		<filter-name>guiceFilter</filter-name>
 		<filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
 		 <init-param>  
             <param-name>module</param-name>  
-            <param-value>br.com.opengti.biblioteca.config.module.OpenBibliotecaWicketModule</param-value>  
+            <param-value>br.com.opengti.library.config.module.OpenBibliotecaWicketModule</param-value>  
    </init-param> 
 	</filter>
 
@@ -20,7 +20,7 @@
 	</filter-mapping>
 
 	<listener>
-		<listener-class>br.com.opengti.biblioteca.config.context.OpenBibliotecaGuiceContext</listener-class>
+		<listener-class>br.com.opengti.library.config.context.OpenBibliotecaGuiceContext</listener-class>
 		
 	</listener>
 
