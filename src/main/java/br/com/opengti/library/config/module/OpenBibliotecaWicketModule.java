@@ -10,6 +10,7 @@ import org.apache.wicket.protocol.http.WicketFilter;
 import br.com.opengti.library.config.filter.WicketGuiceFilter;
 import br.com.opengti.library.config.provider.OpenBibliotecaApplicationProvider;
 
+import com.google.inject.Singleton;
 import com.google.inject.persist.PersistFilter;
 import com.google.inject.persist.jpa.JpaPersistModule;
 import com.google.inject.servlet.ServletModule;
@@ -36,7 +37,18 @@ public class OpenBibliotecaWicketModule extends ServletModule {
 		
 		Map<String, String> params = new HashMap<String, String>();    
 		params.put(WicketFilter.FILTER_MAPPING_PARAM, "/*");  
-	    filter("/*").through(WicketGuiceFilter.class, params);  		
+	    filter("/*").through(WicketGuiceFilter.class, params);  	
+	    
+	    
+	    // Apache Shiro
+	    
+	    
+	    bind(CustomRealm.class).asEagerSingleton();
+        bind(org.apache.shiro.web.servlet.IniShiroFilter.class).in(Singleton.class);
+        filter("/*").through(org.apache.shiro.web.servlet.IniShiroFilter.class);
+
+	    
+	    
 	}
 
 }
