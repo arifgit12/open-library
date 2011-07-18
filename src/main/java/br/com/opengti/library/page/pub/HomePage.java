@@ -1,4 +1,4 @@
-package br.com.opengti.library.page.pub;
+  package br.com.opengti.library.page.pub;
 
 import javax.persistence.EntityManager;
 
@@ -18,8 +18,8 @@ public class HomePage extends BaseTemplate {
 	private Provider<EntityManager> em;
 	
 
-    public HomePage(final PageParameters parameters) {
-        super(parameters);
+    public HomePage() {
+      
 
     }
 

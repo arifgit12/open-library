@@ -9,6 +9,7 @@ import org.apache.wicket.protocol.http.WicketFilter;
 
 import br.com.opengti.library.config.filter.WicketGuiceFilter;
 import br.com.opengti.library.config.provider.OpenBibliotecaApplicationProvider;
+import br.com.opengti.library.config.security.OpenLibraryCustomRealm;
 
 import com.google.inject.Singleton;
 import com.google.inject.persist.PersistFilter;
@@ -41,11 +42,11 @@ public class OpenBibliotecaWicketModule extends ServletModule {
 	    
 	    
 	    // Apache Shiro
-	    
-	    
-	    bind(CustomRealm.class).asEagerSingleton();
-        bind(org.apache.shiro.web.servlet.IniShiroFilter.class).in(Singleton.class);
+	    bind(org.apache.shiro.web.servlet.IniShiroFilter.class).in(Singleton.class);
         filter("/*").through(org.apache.shiro.web.servlet.IniShiroFilter.class);
+	    bind(OpenLibraryCustomRealm.class);
+	    bind(OpenLibraryCustomRealm.class).asEagerSingleton();
+       
 
 	    
 	    

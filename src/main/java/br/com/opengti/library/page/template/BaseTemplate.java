@@ -20,11 +20,11 @@ public class BaseTemplate extends WebPage {
 	private Provider<EntityManager> em;
 	
 
-    public BaseTemplate(final PageParameters parameters) {
+    public BaseTemplate() {
      
-    	  add(new BookmarkablePageLink("linkHomePage", HomePage.class));
-    	  add(new BookmarkablePageLink("linkBooksPage", HomePage.class));
-    	  add(new BookmarkablePageLink("linkLoginPage", LoginPage.class));
+    	  add(new BookmarkablePageLink<Object>("linkHomePage", HomePage.class));
+    	  add(new BookmarkablePageLink<Object>("linkBooksPage", HomePage.class));
+    	  add(new BookmarkablePageLink<Object>("linkLoginPage", LoginPage.class));
        
     }
 
