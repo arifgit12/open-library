@@ -10,7 +10,7 @@
 		<filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
 		 <init-param>  
             <param-name>module</param-name>  
-            <param-value>br.com.opengti.library.config.module.OpenBibliotecaWicketModule</param-value>  
+            <param-value>br.com.opengti.library.config.module.OpenLibraryWicketModule</param-value>  
    </init-param> 
 	</filter>
 
@@ -20,7 +20,7 @@
 	</filter-mapping>
 
 	<listener>
-		<listener-class>br.com.opengti.library.config.context.OpenBibliotecaGuiceContext</listener-class>
+		<listener-class>br.com.opengti.library.config.context.OpenLibraryGuiceContext</listener-class>
 		
 	</listener>
 

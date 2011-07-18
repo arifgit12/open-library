@@ -25,10 +25,9 @@ import com.google.inject.Singleton;
 @Singleton
 public class OpenLibraryCustomRealm extends AuthorizingRealm {
 
-	@Inject
-	@Setter
+	@Inject @Setter
 	private Provider<EntityManager> em;
-
+	
 	protected SimpleAccount getAccount(String email,char[] password) {
 		log.info("Provider<EntityManager> : " + em);
 		log.info("EntityManager : " + em.get());
@@ -43,8 +42,7 @@ public class OpenLibraryCustomRealm extends AuthorizingRealm {
 	}
 
 	@Override
-	protected AuthorizationInfo doGetAuthorizationInfo(
-			PrincipalCollection principalCollection) {
+	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
 		String email = (String) getAvailablePrincipal(principalCollection);
 		return getAccount(email,null);
 	}

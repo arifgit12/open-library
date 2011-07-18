@@ -12,11 +12,13 @@ import javax.persistence.TemporalType;
 import lombok.Getter;
 import lombok.Setter;
 
+import org.hibernate.envers.Audited;
 import org.hibernate.validator.constraints.NotEmpty;
 
 
 
-@Entity @Table
+@Entity 
+@Audited
 public class Comment {
 
 	@Id @GeneratedValue @Getter @Setter private Integer id;

@@ -7,11 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.envers.Audited;
+
 import lombok.Getter;
 
 
 @Entity
-@Table
+@Audited
 public class Feedback {
 	
 	

@@ -6,10 +6,12 @@ import javax.persistence.Entity;
 
 import javax.persistence.Table;
 
+import org.hibernate.envers.Audited;
+
 
 
 @Entity
-@Table
+@Audited
 public class Librarian extends Person {
 	
 	

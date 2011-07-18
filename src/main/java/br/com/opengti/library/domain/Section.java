@@ -9,10 +9,13 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 
+import org.hibernate.envers.Audited;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@Audited
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Section {
 

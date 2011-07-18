@@ -9,12 +9,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 
+import org.hibernate.envers.Audited;
 import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity 
-@Table
-
+@Audited
 public class Customer extends Person {
 	
 	@Column(unique=true) @NotEmpty @Getter @Setter 

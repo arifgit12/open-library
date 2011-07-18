@@ -9,6 +9,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 
+import org.hibernate.envers.Audited;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -18,6 +19,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@Audited
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Person {
 
