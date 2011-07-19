@@ -15,7 +15,7 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
-import br.com.opengti.library.domain.Person;
+import br.com.opengti.library.domain.entity.Person;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;

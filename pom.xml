@@ -24,11 +24,11 @@
 		<log4j.version>1.2.14</log4j.version>
 	</properties>
 	<dependencies>
-<dependency>
-    <groupId>commons-logging</groupId>
-    <artifactId>commons-logging</artifactId>
-    <version>1.1.1</version>
-</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
 
 		<!-- LOGGING DEPENDENCIES - LOG4J -->
 		<dependency>
@@ -36,13 +36,13 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-		
-			<dependency>
+
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -101,10 +101,10 @@
 		<!-- Hibernate -->
 
 		<dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-envers</artifactId>
-    <version>3.6.5.Final</version>
-</dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-envers</artifactId>
+			<version>3.6.5.Final</version>
+		</dependency>
 
 
 		<dependency>
@@ -141,21 +141,21 @@
 			<artifactId>guice-servlet</artifactId>
 			<version>3.0</version>
 		</dependency>
-		
-	
 
-	<dependency>
-    <groupId>org.apache.shiro</groupId>
-    <artifactId>shiro-core</artifactId>
-    <version>1.1.0</version>
-</dependency>
 
-<dependency>
-    <groupId>org.apache.shiro</groupId>
-    <artifactId>shiro-web</artifactId>
-    <version>1.1.0</version>
-</dependency>
-		
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+
 
 
 	</dependencies>
@@ -185,7 +185,7 @@
 					<exclude>**/*.java</exclude>
 				</excludes>
 			</resource>
-			
+
 		</resources>
 		<testResources>
 			<testResource>
@@ -201,14 +201,12 @@
 		</testResources>
 		<plugins>
 			<plugin>
-				<inherited>true</inherited>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
+					<source>1.6</source>
+					<target>1.6</target>
 					<optimize>true</optimize>
-					<debug>true</debug>
 				</configuration>
 			</plugin>
 

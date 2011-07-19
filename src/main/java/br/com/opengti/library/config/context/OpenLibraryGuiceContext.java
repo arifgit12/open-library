@@ -1,6 +1,7 @@
 package br.com.opengti.library.config.context;
 
 
+import br.com.opengti.library.config.module.OpenLibraryShiroModule;
 import br.com.opengti.library.config.module.OpenLibraryWicketModule;
 
 import com.google.inject.Guice;

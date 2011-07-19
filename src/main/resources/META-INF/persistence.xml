@@ -7,19 +7,19 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 		
-		<class>br.com.opengti.library.domain.Book</class>
-		<class>br.com.opengti.library.domain.Category</class>
-		<class>br.com.opengti.library.domain.Comment</class>
-		<class>br.com.opengti.library.domain.Feedback</class>
-		<class>br.com.opengti.library.domain.Librarian</class>
-		<class>br.com.opengti.library.domain.Paper</class>
-		<class>br.com.opengti.library.domain.Person</class>
+		<class>br.com.opengti.library.domain.entity.Book</class>
+		<class>br.com.opengti.library.domain.entity.Category</class>
+		<class>br.com.opengti.library.domain.entity.Comment</class>
+		<class>br.com.opengti.library.domain.entity.Feedback</class>
+		<class>br.com.opengti.library.domain.entity.Librarian</class>
+		<class>br.com.opengti.library.domain.entity.Paper</class>
+		<class>br.com.opengti.library.domain.entity.Person</class>
 		
-		<class>br.com.opengti.library.domain.Publisher</class>
-		<class>br.com.opengti.library.domain.Rented</class>
-		<class>br.com.opengti.library.domain.Role</class>
-		<class>br.com.opengti.library.domain.Section</class>
-		<class>br.com.opengti.library.domain.Tag</class>
+		<class>br.com.opengti.library.domain.entity.Publisher</class>
+		<class>br.com.opengti.library.domain.entity.Rented</class>
+		<class>br.com.opengti.library.domain.entity.Role</class>
+		<class>br.com.opengti.library.domain.entity.Section</class>
+		<class>br.com.opengti.library.domain.entity.Tag</class>
 	
 
 		<properties>

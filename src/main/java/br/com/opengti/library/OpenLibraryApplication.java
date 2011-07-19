@@ -4,7 +4,7 @@ import org.apache.wicket.Page;
 import org.apache.wicket.guice.GuiceComponentInjector;
 import org.apache.wicket.protocol.http.WebApplication;
 
-import br.com.opengti.library.page.pub.HomePage;
+import br.com.opengti.library.view.page.pub.HomePage;
 
 import com.google.inject.Injector;
 
