@@ -1,8 +1,9 @@
 package br.com.opengti.library.config.context;
 
 
-import br.com.opengti.library.config.module.OpenLibraryShiroModule;
-import br.com.opengti.library.config.module.OpenLibraryWicketModule;
+import br.com.opengti.library.config.module.OpenLibraryModule;
+import br.com.opengti.library.config.module.ShiroModule;
+import br.com.opengti.library.config.module.WicketModule;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -17,7 +18,7 @@ public class OpenLibraryGuiceContext extends GuiceServletContextListener{
 
 	@Override
 	protected Injector getInjector() {
-		return Guice.createInjector(new OpenLibraryWicketModule());
+		return Guice.createInjector(new OpenLibraryModule());
 	}
 
 }

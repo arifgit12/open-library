@@ -9,18 +9,17 @@ import lombok.extern.java.Log;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.config.IniSecurityManagerFactory;
-import org.apache.shiro.mgt.SecurityManager;
-import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
-import org.apache.shiro.util.Factory;
-import org.apache.shiro.web.mgt.WebSecurityManager;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.PropertyModel;
 
+import br.com.opengti.library.config.module.OpenLibraryModule;
+import br.com.opengti.library.config.security.OpenLibraryCustomRealm;
+import br.com.opengti.library.domain.repository.PersonRepository;
 import br.com.opengti.library.view.page.template.BaseTemplate;
 
+import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
@@ -39,7 +38,7 @@ public class LoginPage extends BaseTemplate {
 	private String password = "";
 	
 	@Inject @Setter
-	WebSecurityManager securityManager;
+	private PersonRepository personRepository;
 	
     public LoginPage() {
     
@@ -56,15 +55,20 @@ public class LoginPage extends BaseTemplate {
         		log.info("EntityManagerProvider: " + em);
         		log.info("Login: " + login + " " + "Password: " + password);
         		
-        		
+        		OpenLibraryCustomRealm om ;
+        	
         		
         		Subject subject = SecurityUtils.getSubject();
         		UsernamePasswordToken token = new UsernamePasswordToken(login, password);
         		token.setRememberMe(true);
         		try {
         		    subject.login(token);
+        		
+        		    
+        		    System.out.println(subject.getPrincipal());
+        		    
         		} catch (AuthenticationException ae) {
-        		    // handle failed logins here ... see the docs for more exceptions
+        		   ae.printStackTrace();
         		}
 
         		
@@ -80,5 +84,7 @@ public class LoginPage extends BaseTemplate {
         
       
     }
+
+    
     
 }

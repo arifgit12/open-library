@@ -9,7 +9,7 @@ import lombok.extern.java.Log;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.realm.RealmFactory;
 
-import br.com.opengti.library.config.module.OpenLibraryShiroModule;
+import br.com.opengti.library.config.module.ShiroModule;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -21,7 +21,7 @@ public class OpenLibraryRealmFactory  implements RealmFactory  {
 		log.info("Iniciando Método");
 		List<Realm> realms = new ArrayList<Realm>();
 		
-		Injector injector = Guice.createInjector(new OpenLibraryShiroModule());
+		Injector injector = Guice.createInjector(new ShiroModule());
 		
 		OpenLibraryCustomRealm realm = injector.getInstance( OpenLibraryCustomRealm.class );
 		

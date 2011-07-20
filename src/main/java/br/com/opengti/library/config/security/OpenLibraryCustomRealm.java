@@ -33,8 +33,12 @@ public class OpenLibraryCustomRealm extends AuthorizingRealm {
 		log.info("EntityManager : " + em.get());
 		
 		Query query = em.get().createNamedQuery("getPersonByEmailAndPassword");
-		query.setParameter("email", email);
-		query.setParameter("password", password);
+		query.setParameter(1, email);
+		query.setParameter(2,new String(password));
+		
+		log.info(email);
+		log.info(new String(password));
+		log.info(query.toString());
 		
 		Person person = (Person) query.getSingleResult();
 		SimpleAccount account = new SimpleAccount(person.getEmail(),person.getPassword(), getName());
