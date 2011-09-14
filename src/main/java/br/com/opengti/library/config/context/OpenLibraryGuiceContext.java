@@ -21,11 +21,7 @@ import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.servlet.GuiceServletContextListener;
 
-/**
- * 
- * Classe Reponsável pela inicialização dos módulos do Google Guice
- *
- */
+
 public class OpenLibraryGuiceContext extends GuiceServletContextListener{
 
 
@@ -36,26 +32,16 @@ public class OpenLibraryGuiceContext extends GuiceServletContextListener{
 	    private ServletContext servletContext;
 	    private Injector injector;
 	    
-	    /**
-	     * Injeta os m&oacute;dulos quando o servidor for inicializado.
-	     * @see javax.servlet.ServletContextListener#contextInitialized(javax.servlet.ServletContextEvent)
-	     */
 	    @Override
 	    public void contextInitialized( final ServletContextEvent servletContextEvent ) {
 	        this.servletContext = servletContextEvent.getServletContext();
 	        super.contextInitialized( servletContextEvent );
 	    }
-	    
-	    /**
-	     * @see javax.servlet.ServletContextListener#contextDestroyed(javax.servlet.ServletContextEvent)
-	     */
+	  
 	    public void contextDestroyed(ServletContextEvent servletContextEvent) {
 	    	servletContextEvent.getServletContext().removeAttribute(KEY);
 	    } 
-
-	    /*
-	     * Cria, injeta os m&oacute;dulos passados no web.xml e retorna o injetor do Guice. 
-	     */
+	    
 		@Override
 		protected Injector getInjector() {
 			
@@ -84,7 +70,7 @@ public class OpenLibraryGuiceContext extends GuiceServletContextListener{
 		        			
 		        			clist.add( (Module)module.getConstructor().newInstance() );
 		        		}
-		        	} // while.
+		        	} 
 		        	
 		        	
 		            

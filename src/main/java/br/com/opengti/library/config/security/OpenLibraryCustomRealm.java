@@ -21,6 +21,11 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
 
+/**
+ * 
+ * @author Gabriel Cardelli
+ *
+ */
 @Log
 @Singleton
 public class OpenLibraryCustomRealm extends AuthorizingRealm {
@@ -29,20 +34,15 @@ public class OpenLibraryCustomRealm extends AuthorizingRealm {
 	private Provider<EntityManager> em;
 	
 	protected SimpleAccount getAccount(String email,char[] password) {
-		log.info("Provider<EntityManager> : " + em);
-		log.info("EntityManager : " + em.get());
 		
 		Query query = em.get().createNamedQuery("getPersonByEmailAndPassword");
 		query.setParameter(1, email);
 		query.setParameter(2,new String(password));
 		
-		log.info(email);
-		log.info(new String(password));
-		log.info(query.toString());
-		
 		Person person = (Person) query.getSingleResult();
 		SimpleAccount account = new SimpleAccount(person.getEmail(),person.getPassword(), getName());
 		return account;
+		
 	}
 
 	@Override

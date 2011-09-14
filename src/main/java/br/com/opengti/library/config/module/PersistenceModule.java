@@ -9,11 +9,22 @@ import com.google.inject.persist.PersistFilter;
 import com.google.inject.persist.jpa.JpaPersistModule;
 import com.google.inject.servlet.ServletModule;
 
+
+/**
+ * 
+ * Persistence Guice Module
+ * @author Gabriel Cardelli
+ *
+ */
 public class PersistenceModule extends ServletModule {
 	
 	public void configureServlets() {
 		
-		// Jpa Config
+		/*
+		 * 
+		 * JPA Config
+		 * 
+		 */
 		
 		 install(new JpaPersistModule("bibliotecaUnit"));	
 		 filter("/*").through(PersistFilter.class);

@@ -14,20 +14,22 @@ import br.com.opengti.library.config.module.ShiroSecurityModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
+/**
+ * 
+ * @author Gabriel Cardelli
+ *
+ */
 @Log
 public class OpenLibraryRealmFactory  implements RealmFactory  {
 
 	public Collection<Realm> getRealms() {
-		log.info("Iniciando Método");
+	
 		List<Realm> realms = new ArrayList<Realm>();
-		
 		Injector injector = Guice.createInjector(ShiroSecurityModule.guiceFilterModule());
-		
-		OpenLibraryCustomRealm realm = injector.getInstance( OpenLibraryCustomRealm.class );
-		
+		OpenLibraryCustomRealm realm = injector.getInstance( OpenLibraryCustomRealm.class );	
 		realms.add( realm );
-		log.info("Retornando Realms");
 		return realms;
+		
 	}
 
 }

@@ -10,8 +10,9 @@ import com.google.inject.Injector;
 
 /**
  * 
- * Classe repons√°vel pela inicializa√ß√£o da Aplica√ß√£o.
- * 
+ * Classe Respons·vel pela inicializaÁ„o da aplicaÁ„o
+ * @author Gabriel Cardelli
+ *
  */
 public class OpenLibraryApplication extends WebApplication {  
 	       

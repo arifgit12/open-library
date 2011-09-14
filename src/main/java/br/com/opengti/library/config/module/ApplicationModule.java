@@ -8,13 +8,17 @@ import br.com.opengti.library.config.provider.OpenLibraryApplicationProvider;
 
 import com.google.inject.servlet.ServletModule;
 
+/**
+ * 
+ * Application Guice Module
+ * @author Gabriel Cardelli
+ *
+ */
 @Log
 public class ApplicationModule extends ServletModule{
 
 	@Override
 	protected void configureServlets() {
-		
-// Application Config
 		
 		bind(WebApplication.class).toProvider(OpenLibraryApplicationProvider.class);
 

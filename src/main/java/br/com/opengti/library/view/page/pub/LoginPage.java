@@ -17,14 +17,14 @@ import org.apache.wicket.model.PropertyModel;
 
 import br.com.opengti.library.config.security.OpenLibraryCustomRealm;
 import br.com.opengti.library.domain.repository.PersonRepository;
-import br.com.opengti.library.view.page.template.BaseTemplate;
+import br.com.opengti.library.view.page.template.DefaultTemplate;
 
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 @Log
-public class LoginPage extends BaseTemplate {
+public class LoginPage extends DefaultTemplate {
 
 	private static final long serialVersionUID = 1L;
 
@@ -51,24 +51,14 @@ public class LoginPage extends BaseTemplate {
         	protected void onSubmit() {
         		
         		super.onSubmit();
-        		
-        		 
-        		
-        		log.info("EntityManagerProvider: " + em);
-        		log.info("Login: " + login + " " + "Password: " + password);
-        		
-        		OpenLibraryCustomRealm om ;
-        	
+
         		Subject subject = SecurityUtils.getSubject();
-        		System.out.println("SUBJECT INICIO: " +subject.getPrincipal());
         		UsernamePasswordToken token = new UsernamePasswordToken(login, password);
         		token.setRememberMe(true);
+        		
         		try {
         		    subject.login(token);
-        		
-        		    
-        		    System.out.println("SUBJECT: " +subject.getPrincipal());
-        		    
+        		    System.out.println("SUBJECT: " +subject.getPrincipal());       		    
         		} catch (AuthenticationException ae) {
         		   ae.printStackTrace();
         		}

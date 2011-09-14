@@ -8,6 +8,13 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
 
+/**
+ * 
+ * Classe responsável pela integração do Wicket com Guice
+ * - Nesta classe deixamos o guice tomar conta da instaciação do Wicket WebApplication
+ * @author Gabriel Cardelli
+ *
+ */
 public class OpenLibraryApplicationProvider implements Provider<WebApplication> {
 	 
 	 private final Injector injector;

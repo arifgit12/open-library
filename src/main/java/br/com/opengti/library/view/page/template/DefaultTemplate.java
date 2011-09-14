@@ -12,7 +12,7 @@ import br.com.opengti.library.view.page.pub.LoginPage;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
-public class BaseTemplate extends WebPage {
+public class DefaultTemplate extends WebPage {
 
 	private static final long serialVersionUID = 1L;
 
@@ -20,7 +20,7 @@ public class BaseTemplate extends WebPage {
 	private Provider<EntityManager> em;
 	
 
-    public BaseTemplate() {
+    public DefaultTemplate() {
      
     	  add(new BookmarkablePageLink<Object>("linkHomePage", HomePage.class));
     	  add(new BookmarkablePageLink<Object>("linkBooksPage", HomePage.class));

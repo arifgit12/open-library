@@ -9,7 +9,12 @@ import org.apache.shiro.guice.web.ShiroWebModule;
 
 import br.com.opengti.library.config.security.OpenLibraryCustomRealm;
 
-
+/**
+ * 
+ * Apache Shiro Guice Module
+ * @author Gabriel Cardelli
+ *
+ */
 @Log
 public class ShiroSecurityModule extends ShiroWebModule {
 
