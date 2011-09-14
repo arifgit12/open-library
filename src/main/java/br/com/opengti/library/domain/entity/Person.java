@@ -21,6 +21,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import br.com.caelum.stella.bean.validation.CPF;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 
 @Entity
 @Audited
@@ -28,6 +29,7 @@ import lombok.Setter;
 @NamedQueries({
 	@NamedQuery(name="getPersonByEmailAndPassword",query="SELECT person FROM Person person WHERE email = ?1 and password = ?2")
 })
+@Log4j
 public class Person {
 
 	@Id @GeneratedValue @Getter

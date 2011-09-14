@@ -5,6 +5,7 @@ import javax.persistence.Query;
 
 import lombok.Setter;
 import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -26,9 +27,9 @@ import com.google.inject.Singleton;
  * @author Gabriel Cardelli
  *
  */
-@Log
+@Log4j
 @Singleton
-public class OpenLibraryCustomRealm extends AuthorizingRealm {
+public class JpaRealm extends AuthorizingRealm {
 
 	@Inject @Setter
 	private Provider<EntityManager> em;

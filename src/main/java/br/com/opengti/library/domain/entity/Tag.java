@@ -13,10 +13,12 @@ import org.hibernate.envers.Audited;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 
 @Entity
 @Audited
 @Inheritance(strategy=InheritanceType.JOINED)
+@Log4j
 public class Tag {
 
 	@Id

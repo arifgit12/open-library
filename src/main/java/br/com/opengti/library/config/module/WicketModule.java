@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
 
 import org.apache.wicket.protocol.http.WicketFilter;
 
@@ -17,12 +18,10 @@ import com.google.inject.servlet.ServletModule;
  * @author Rodrigo Mibielli.
  * 
  */
-@Log
+@Log4j
 public class WicketModule extends ServletModule {
 
 	protected void configureServlets() {
-
-		// Wicket Config
 
 		Map<String, String> params = new HashMap<String, String>();
 		params.put(WicketFilter.FILTER_MAPPING_PARAM, "/*");

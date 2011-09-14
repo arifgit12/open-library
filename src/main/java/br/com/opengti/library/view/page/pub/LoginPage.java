@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -15,7 +16,7 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.PropertyModel;
 
 
-import br.com.opengti.library.config.security.OpenLibraryCustomRealm;
+import br.com.opengti.library.config.security.JpaRealm;
 import br.com.opengti.library.domain.repository.PersonRepository;
 import br.com.opengti.library.view.page.template.DefaultTemplate;
 
@@ -23,7 +24,7 @@ import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
-@Log
+@Log4j
 public class LoginPage extends DefaultTemplate {
 
 	private static final long serialVersionUID = 1L;
@@ -48,7 +49,12 @@ public class LoginPage extends DefaultTemplate {
         
 
     	Form<?> form = new Form<Object>("loginForm"){
-        	protected void onSubmit() {
+        	/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			protected void onSubmit() {
         		
         		super.onSubmit();
 
@@ -58,9 +64,9 @@ public class LoginPage extends DefaultTemplate {
         		
         		try {
         		    subject.login(token);
-        		    System.out.println("SUBJECT: " +subject.getPrincipal());       		    
-        		} catch (AuthenticationException ae) {
-        		   ae.printStackTrace();
+        		    log.info(token.getUsername() + " entrou no sistema");
+        		} catch (Exception ae) {
+        			log.info(token.getUsername() + " não conseguiu entrar no sistema");
         		}
 
         		

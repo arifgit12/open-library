@@ -1,5 +1,7 @@
 package br.com.opengti.library.config.provider;
 
+import lombok.extern.log4j.Log4j;
+
 import org.apache.wicket.protocol.http.WebApplication;
 
 import br.com.opengti.library.OpenLibraryApplication;
@@ -15,12 +17,13 @@ import com.google.inject.Provider;
  * @author Gabriel Cardelli
  *
  */
-public class OpenLibraryApplicationProvider implements Provider<WebApplication> {
+@Log4j
+public class ApplicationProvider implements Provider<WebApplication> {
 	 
 	 private final Injector injector;
 
 	 @Inject
-	 public OpenLibraryApplicationProvider(Injector injector) {
+	 public ApplicationProvider(Injector injector) {
 	  this.injector = injector;  
 	 }
 	 

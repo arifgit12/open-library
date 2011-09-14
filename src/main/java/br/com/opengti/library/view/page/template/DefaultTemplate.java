@@ -2,6 +2,8 @@ package br.com.opengti.library.view.page.template;
 
 import javax.persistence.EntityManager;
 
+import lombok.extern.log4j.Log4j;
+
 import org.apache.wicket.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
@@ -12,6 +14,7 @@ import br.com.opengti.library.view.page.pub.LoginPage;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
+@Log4j
 public class DefaultTemplate extends WebPage {
 
 	private static final long serialVersionUID = 1L;

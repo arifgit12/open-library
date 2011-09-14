@@ -4,6 +4,9 @@ import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.inject.Singleton;
 
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
+
 import org.apache.wicket.protocol.http.IWebApplicationFactory;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.protocol.http.WicketFilter;
@@ -14,22 +17,17 @@ import org.apache.wicket.protocol.http.WicketFilter;
  *
  */
 @Singleton
+@Log4j
 public class WicketGuiceFilter extends WicketFilter
 {
     private final Provider<WebApplication> appsProvider;
 
-    /**
-     * @param appsProvider
-     */
     @Inject
     public WicketGuiceFilter(Provider<WebApplication> appsProvider)
     {
         this.appsProvider = appsProvider;
     }
     
-    /**
-     * @see org.apache.wicket.protocol.http.WicketFilter#getApplicationFactory()
-     */
     @Override
     protected IWebApplicationFactory getApplicationFactory()
     {

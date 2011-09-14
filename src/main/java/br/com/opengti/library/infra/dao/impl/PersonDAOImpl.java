@@ -7,11 +7,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
+import lombok.extern.log4j.Log4j;
+
 import br.com.opengti.library.domain.entity.Person;
 import br.com.opengti.library.infra.dao.PersonDAO;
 
 import com.google.inject.Provider;
 
+@Log4j
 public class PersonDAOImpl implements PersonDAO{
 
 	private Provider<EntityManager> entityManagerProvider;
