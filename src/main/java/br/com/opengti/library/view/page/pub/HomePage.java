@@ -12,6 +12,11 @@ import br.com.opengti.library.view.page.template.DefaultTemplate;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
+/**
+ * 
+ * 
+ *
+ */
 @Log4j
 public class HomePage extends DefaultTemplate {
 

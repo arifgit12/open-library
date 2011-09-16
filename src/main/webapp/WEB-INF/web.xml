@@ -5,7 +5,7 @@
 	<display-name>OpenLibrary</display-name>
 	
 	<listener>
-		<listener-class>br.com.opengti.library.config.context.OpenLibraryGuiceContext</listener-class>
+		<listener-class>br.com.opengti.library.config.context.GuiceContext</listener-class>
 	</listener>
 	
 	<filter>

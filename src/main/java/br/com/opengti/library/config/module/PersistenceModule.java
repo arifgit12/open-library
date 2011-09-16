@@ -26,6 +26,7 @@ public class PersistenceModule extends ServletModule {
 		 // JPA Config
 		
 		 install(new JpaPersistModule("bibliotecaUnit"));	
+		 
 		 filter("/*").through(PersistFilter.class);
 		
 		 // DAO Binding

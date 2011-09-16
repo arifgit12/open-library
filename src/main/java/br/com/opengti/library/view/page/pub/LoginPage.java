@@ -10,6 +10,7 @@ import lombok.extern.log4j.Log4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
@@ -23,6 +24,7 @@ import br.com.opengti.library.view.page.template.DefaultTemplate;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import com.google.inject.persist.Transactional;
 
 @Log4j
 public class LoginPage extends DefaultTemplate {
@@ -41,6 +43,7 @@ public class LoginPage extends DefaultTemplate {
 	@Inject @Setter
 	private PersonRepository personRepository;
 	
+
     public LoginPage() {
     
     	
@@ -58,19 +61,9 @@ public class LoginPage extends DefaultTemplate {
         		
         		super.onSubmit();
 
-        		Subject subject = SecurityUtils.getSubject();
-        		UsernamePasswordToken token = new UsernamePasswordToken(login, password);
-        		token.setRememberMe(true);
+        		userAuth(login, password);
         		
-        		try {
-        		    subject.login(token);
-        		    log.info(token.getUsername() + " entrou no sistema");
-        		} catch (Exception ae) {
-        			log.info(token.getUsername() + " não conseguiu entrar no sistema");
-        		}
-
-        		
-        	}
+			}
         };
         
         
@@ -82,7 +75,27 @@ public class LoginPage extends DefaultTemplate {
         
       
     }
-
-    
+	
+	
+    @Transactional
+	public void userAuth(String username,String password){
+		
+    	Subject subject = SecurityUtils.getSubject();
+		
+    	UsernamePasswordToken token = new UsernamePasswordToken(login, password);
+		
+    	token.setRememberMe(true);
+		
+		try {
+			
+		    subject.login(token);
+		    
+		    log.info(token.getUsername() + " entrou no sistema");
+		    
+		} catch (Exception ae) {
+			log.info(token.getUsername() + " não conseguiu entrar no sistema");
+		}
+		
+	}    
     
 }

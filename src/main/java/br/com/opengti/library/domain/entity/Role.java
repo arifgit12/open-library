@@ -26,11 +26,11 @@ public class Role {
 	
 	@Getter 
 	@Setter
-	private String nome;
+	private String name;
 	
 	@Getter 
 	@Setter
-	private String descricao;
+	private String description;
 
 	
 }

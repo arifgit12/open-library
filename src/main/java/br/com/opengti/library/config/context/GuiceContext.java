@@ -18,7 +18,7 @@ import com.google.inject.Module;
 import com.google.inject.servlet.GuiceServletContextListener;
 
 @Log4j
-public class OpenLibraryGuiceContext extends GuiceServletContextListener {
+public class GuiceContext extends GuiceServletContextListener {
 
 	public static final String KEY = Injector.class.getName();
 
