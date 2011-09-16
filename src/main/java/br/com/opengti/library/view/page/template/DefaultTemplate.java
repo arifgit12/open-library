@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
+import org.apache.shiro.SecurityUtils;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 
@@ -26,7 +27,7 @@ public class DefaultTemplate extends WebPage {
 
 	@Inject @Setter
 	private Provider<EntityManager> em;
-	
+		
 
     public DefaultTemplate() {
      
@@ -40,7 +41,14 @@ public class DefaultTemplate extends WebPage {
     public void createMenu(){
     	add(new BookmarkablePageLink<Object>("linkHomePage", HomePage.class));
 	  	add(new BookmarkablePageLink<Object>("linkBooksPage", HomePage.class));
-	  	add(new BookmarkablePageLink<Object>("linkLoginPage", LoginPage.class));
+	  	
+	  	if(SecurityUtils.getSubject().getPrincipal() != null){
+	  		
+	  	}else{
+	  		add(new BookmarkablePageLink<Object>("linkLoginPage", LoginPage.class));
+		  	add(new BookmarkablePageLink<Object>("linkCadastroPage", LoginPage.class));
+	  	}
+	  	
     }
 
 

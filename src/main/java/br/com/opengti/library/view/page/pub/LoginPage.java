@@ -18,6 +18,7 @@ import org.apache.wicket.model.PropertyModel;
 
 
 import br.com.opengti.library.config.security.JpaRealm;
+import br.com.opengti.library.config.security.exception.OpenApplicationException;
 import br.com.opengti.library.domain.repository.PersonRepository;
 import br.com.opengti.library.view.page.template.DefaultTemplate;
 
@@ -92,7 +93,9 @@ public class LoginPage extends DefaultTemplate {
 		    
 		    log.info(token.getUsername() + " entrou no sistema");
 		    
-		} catch (Exception ae) {
+		    throw new OpenApplicationException("Error :P");
+		    
+		} catch (OpenApplicationException ae) {
 			log.info(token.getUsername() + " não conseguiu entrar no sistema");
 		}
 		

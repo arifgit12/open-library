@@ -2,54 +2,43 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.opengti</groupId>
-	<artifactId>OpenLibrary</artifactId>
+	<artifactId>openlibrary</artifactId>
 	<packaging>war</packaging>
-	<version>1.0-SNAPSHOT</version>
-	<!-- TODO project name -->
-	<name>quickstart</name>
-	<description></description>
-	<!-- TODO <organization> <name>company name</name> <url>company url</url> 
-		</organization> -->
-	<licenses>
-		<license>
-			<name>The Apache Software License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
+	<version>1.0.0</version>
+
+	<name>OpenLibrary</name>
+	<description>OpenSource Library</description>
+
 	<properties>
 		<wicket.version>1.4.17</wicket.version>
 		<jetty.version>6.1.25</jetty.version>
 		<slf4j.version>1.5.8</slf4j.version>
 		<log4j.version>1.2.14</log4j.version>
 		<shiro.version>1.2.0-SNAPSHOT</shiro.version>
-		
-		
 	</properties>
 
 	<repositories>
 
 		<repository>
-
+			<!-- Necessário para realizar download das dependências do shiro 1.2 -->
 			<id>Apache Snapshots</id>
 			<name>Apache Snapshots</name>
 			<url>https://repository.apache.org/content/repositories/snapshots</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
-
 		</repository>
 
 	</repositories>
 
 	<dependencies>
+
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>1.1.1</version>
 		</dependency>
 
-		<!-- LOGGING DEPENDENCIES - LOG4J -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -68,15 +57,12 @@
 			<version>1.2.14</version>
 		</dependency>
 
-		<!-- JUNIT DEPENDENCY FOR TESTING -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.8.1</version>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- WICKET -->
 
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
@@ -90,17 +76,11 @@
 			<version>1.4.17</version>
 		</dependency>
 
-
-		<!-- MYSQL CONNECTOR -->
-
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.17</version>
 		</dependency>
-
-
-		<!-- Lombok -->
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -109,15 +89,11 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Caelum Stella -->
-
 		<dependency>
 			<groupId>br.com.caelum.stella</groupId>
 			<artifactId>caelum-stella-bean-validation</artifactId>
 			<version>2.0-beta1</version>
 		</dependency>
-
-		<!-- Hibernate -->
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -125,15 +101,11 @@
 			<version>3.6.5.Final</version>
 		</dependency>
 
-
 		<dependency>
-
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>4.2.0.Final</version>
 		</dependency>
-
-		<!-- Servlet API -->
 
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
@@ -141,8 +113,12 @@
 			<version>7.0.16</version>
 		</dependency>
 
-		<!-- Google Guice -->
-
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>com.google.inject</groupId>
 			<artifactId>guice</artifactId>
@@ -188,11 +164,11 @@
 			</exclusions>
 		</dependency>
 
-<dependency>
-    <groupId>commons-beanutils</groupId>
-    <artifactId>commons-beanutils</artifactId>
-    <version>1.8.3</version>
-</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.8.3</version>
+		</dependency>
 
 
 	</dependencies>

@@ -2,11 +2,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
-	<persistence-unit name="bibliotecaUnit"
-		transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="bibliotecaUnit" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-		
+
 		<class>br.com.opengti.library.domain.entity.Book</class>
 		<class>br.com.opengti.library.domain.entity.Category</class>
 		<class>br.com.opengti.library.domain.entity.Comment</class>
@@ -14,25 +13,47 @@
 		<class>br.com.opengti.library.domain.entity.Librarian</class>
 		<class>br.com.opengti.library.domain.entity.Paper</class>
 		<class>br.com.opengti.library.domain.entity.Person</class>
-		
+
 		<class>br.com.opengti.library.domain.entity.Publisher</class>
 		<class>br.com.opengti.library.domain.entity.Rented</class>
 		<class>br.com.opengti.library.domain.entity.Role</class>
 		<class>br.com.opengti.library.domain.entity.Section</class>
 		<class>br.com.opengti.library.domain.entity.Tag</class>
-	
+
 
 		<properties>
+
+			<!-- Configurações de Conexão com a Base de Dados -->
 
 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/openlibrary"></property>
 			<property name="hibernate.connection.username" value="root"></property>
 			<property name="hibernate.connection.password" value="dds3@1"></property>
-			<property name="hibernate.connection.pool_size" value="10"></property>
-			<property name="show_sql" value="true"></property>
-
-
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-			  <property name="hibernate.hbm2ddl.auto" value="create-drop" />  
+			
+			<!--  Configurações do Pool -->
+			
+			<property name="hibernate.connection.pool_size" value="10"></property>
+			
+			<!-- Configurações de criação de tabelas -->
+			
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			
+			<!-- Cofigurações Auxiliares -->
+			
+			<property name="show_sql" value="true"></property>
+			<property name="format_sql" value="true"></property>
+			
+			<!-- Configurações do Hibernate Envers -->
+			
+			<property name="hibernate.ejb.event.post-insert" value="org.hibernate.ejb.event.EJB3PostInsertEventListener,org.hibernate.envers.event.AuditEventListener" />
+			<property name="hibernate.ejb.event.post-update" value="org.hibernate.ejb.event.EJB3PostUpdateEventListener,org.hibernate.envers.event.AuditEventListener" />
+			<property name="hibernate.ejb.event.post-delete" value="org.hibernate.ejb.event.EJB3PostDeleteEventListener,org.hibernate.envers.event.AuditEventListener" />
+			<property name="hibernate.ejb.event.pre-collection-update" value="org.hibernate.envers.event.AuditEventListener" />
+			<property name="hibernate.ejb.event.pre-collection-remove" value="org.hibernate.envers.event.AuditEventListener" />
+			<property name="hibernate.ejb.event.post-collection-recreate" value="org.hibernate.envers.event.AuditEventListener" />
+			<property name="org.hibernate.envers.audit_table_prefix" value="audit_" />
+			<property name="org.hibernate.envers.audit_table_suffix" value="" />
+
 		</properties>
 	</persistence-unit>
 </persistence>

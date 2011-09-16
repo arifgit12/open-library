@@ -7,8 +7,13 @@ import lombok.extern.log4j.Log4j;
 
 import org.apache.shiro.guice.web.ShiroWebModule;
 
+import com.google.inject.Scope;
+import com.google.inject.Singleton;
 
+
+import br.com.opengti.library.config.mail.EnviarEmail;
 import br.com.opengti.library.config.security.JpaRealm;
+import br.com.opengti.library.config.security.exception.OpenApplicationException;
 
 /**
  * 
@@ -27,6 +32,8 @@ public class ShiroSecurityModule extends ShiroWebModule {
 	@Override
 	protected void configureShiroWeb() {
 		bindRealm().to(JpaRealm.class);
+		bind(EnviarEmail.class);
+		bind(Throwable.class).to(OpenApplicationException.class).in(Singleton.class);
 	}
 
 }
