@@ -9,6 +9,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 
+import br.com.opengti.library.view.page.pub.BooksPage;
 import br.com.opengti.library.view.page.pub.HomePage;
 import br.com.opengti.library.view.page.pub.LoginPage;
 import br.com.opengti.library.view.page.pub.LogoutPage;
@@ -49,7 +50,7 @@ public class DefaultTemplate extends WebPage {
     	BookmarkablePageLink<Object> logoutLink    = null;
     	
     	homeLink     = new BookmarkablePageLink<Object>("homeLink"    , HomePage.class);
-    	booksLink     = new BookmarkablePageLink<Object>("booksLink"   , HomePage.class);
+    	booksLink     = new BookmarkablePageLink<Object>("booksLink"   , BooksPage.class);
     	registerLink = new BookmarkablePageLink<Object>("registerLink", LoginPage.class);
     	loginLink    = new BookmarkablePageLink<Object>("loginLink"   , LoginPage.class);
     	logoutLink    = new BookmarkablePageLink<Object>("logoutLink"   , LogoutPage.class);
