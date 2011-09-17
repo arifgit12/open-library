@@ -12,13 +12,13 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
+import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.PropertyModel;
 
 
 import br.com.opengti.library.config.security.JpaRealm;
-import br.com.opengti.library.config.security.exception.OpenApplicationException;
 import br.com.opengti.library.domain.repository.PersonRepository;
 import br.com.opengti.library.view.page.template.DefaultTemplate;
 
@@ -43,38 +43,39 @@ public class LoginPage extends DefaultTemplate {
 	
 	@Inject @Setter
 	private PersonRepository personRepository;
-	
 
     public LoginPage() {
     
-    	
     	PropertyModel<String> loginModel = new PropertyModel<String>(this, "login");
     	PropertyModel<String> passwordModel = new PropertyModel<String>(this, "password");
-        
-
+    	
+    	Label messageLabel = new Label("message","");
+    	
     	Form<?> form = new Form<Object>("loginForm"){
-        	/**
-			 * 
-			 */
+        
 			private static final long serialVersionUID = 1L;
 
 			protected void onSubmit() {
-        		
         		super.onSubmit();
-
-        		userAuth(login, password);
+        		
+        		try{
+        			userAuth(login, password);
+        			setResponsePage(getApplication().getHomePage());
+        		}catch(Exception e){
+        			remove("message");
+        			add(new Label("message","Dados Inválidos"));
+        		}	
         		
 			}
         };
         
-        
+        form.add(messageLabel);
         form.add(new TextField<String>("login",loginModel));
         form.add(new TextField<String>("password",passwordModel));
 
-
         add(form);
-        
-      
+ 
+
     }
 	
 	
@@ -86,19 +87,9 @@ public class LoginPage extends DefaultTemplate {
     	UsernamePasswordToken token = new UsernamePasswordToken(login, password);
 		
     	token.setRememberMe(true);
-		
-		try {
-			
-		    subject.login(token);
+					
+		subject.login(token);
 		    
-		    log.info(token.getUsername() + " entrou no sistema");
-		    
-		    throw new OpenApplicationException("Error :P");
-		    
-		} catch (OpenApplicationException ae) {
-			log.info(token.getUsername() + " não conseguiu entrar no sistema");
-		}
-		
 	}    
     
 }

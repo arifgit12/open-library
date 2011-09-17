@@ -36,9 +36,8 @@
 </script>
 
 <style type="text/css">
-
 a img {
- border: 0px;
+	border: 0px;
 }
 
 #iconbar {
@@ -50,8 +49,7 @@ a img {
 	position: relative;
 	overflow: hidden;
 	margin-right: 20px;
-	background: #FFFFFF ;
-	
+	background: #FFFFFF;
 }
 
 #textPage {
@@ -74,71 +72,70 @@ a img {
 }
 
 #iconbar span {
-
 	position: absolute;
 	display: none;
-
 	color: #409BED;
 	padding-left: 10px;
-	margin-top:9px;
+	margin-top: 9px;
 	font-family: verdana;
 	font-size: 10px;
 }
-
 </style>
 </head>
 <body>
-	
-
 	<table width="900px" align="center" border="0">
-		
 		<tr>
-		
-			<td width="200px"><img src="http://www.cod.edu/library/global/images/logos/libraryLogo.gif" /></td>
-			<td width="700px"><ul id="iconbar">
+			<td width="200px">
+				<img src="http://www.cod.edu/library/global/images/logos/libraryLogo.gif" />
+			</td>
+			
+			<td width="700px">
+				<ul id="iconbar">
 					<li>
-						<a href="#" wicket:id="linkHomePage">  
+						<a href="#" wicket:id="homeLink"> 
 							<img src="template/css/images/home.png" alt="" /> 
 							<span>Home</span> 
 						</a>
 					</li>
-					<li><a href="#" wicket:id="linkBooksPage"> <img src="template/css/images/book.png" alt="" />
-							<span>Books </span> </a></li>
-							
-						<shiro:guest>
+				
+					<li><a href="#" wicket:id="booksLink"> <img
+							src="template/css/images/book.png" alt="" /> <span>Books
+						</span> </a>
+					</li>
 
-							<li><a href="#" wicket:id="linkLoginPage"> <img src="template/css/images/login.png" alt="" />
-							<span>Log in </span> </a></li>
-							
-							<li><a href="#" wicket:id="linkLoginPage"> <img src="template/css/images/login.png" alt="" />
-							<span>Register </span> </a></li>
-						</shiro:guest>
-				</ul>
-				
-				
-				
-			</td>
-		
+					<li><a href="#" wicket:id="registerLink"> <img
+							src="template/css/images/register.png" alt="" /> <span>Register
+						</span> </a>
+					</li>
+					<li><a href="#" wicket:id="loginLink"> <img
+							src="template/css/images/login.png" alt="" /> <span>Log
+								in </span> </a>
+					</li>
+
+					<li>
+						<a href="#" wicket:id="logoutLink"> 
+							<img src="template/css/images/logout.png" alt="" /> 
+							<span>Log out</span> 
+						</a>
+					</li>
+
+
+				</ul></td>
+
 		</tr>
-		
+
 
 		<tr>
 
-			<td colspan="2"   width="800px" valign="top">
-				 <wicket:child />
-			</td>
+			<td colspan="2" width="800px" valign="top"><wicket:child /></td>
 		</tr>
-		
+
 		<tr>
-		
-			<td colspan="2" style="font-size:10px;font-family: verdana;text-align: center">
-				<br>
-			
-				OpenSource Library - version 0.0.1
-			
-			
-			</td>
-		
+
+			<td colspan="2"
+				style="font-size: 10px; font-family: verdana; text-align: center">
+				<br> OpenSource Library - version 1.0.0</td>
+
 		</tr>
 
 

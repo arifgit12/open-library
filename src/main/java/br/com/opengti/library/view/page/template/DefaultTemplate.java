@@ -38,18 +38,31 @@ public class DefaultTemplate extends WebPage {
     }
     
     
-    public void createMenu(){
-    	add(new BookmarkablePageLink<Object>("linkHomePage", HomePage.class));
-	  	add(new BookmarkablePageLink<Object>("linkBooksPage", HomePage.class));
-	  	
-	  	if(SecurityUtils.getSubject().getPrincipal() != null){
-	  		
-	  	}else{
-	  		add(new BookmarkablePageLink<Object>("linkLoginPage", LoginPage.class));
-		  	add(new BookmarkablePageLink<Object>("linkCadastroPage", LoginPage.class));
-	  	}
-	  	
-    }
 
+    public void createMenu(){
+    	
+    	BookmarkablePageLink<Object> homeLink     = null;
+    	BookmarkablePageLink<Object> booksLink     = null;
+    	BookmarkablePageLink<Object> registerLink = null;
+    	BookmarkablePageLink<Object> loginLink    = null;
+    	BookmarkablePageLink<Object> logoutLink    = null;
+    	
+    	homeLink     = new BookmarkablePageLink<Object>("homeLink"    , HomePage.class);
+    	booksLink     = new BookmarkablePageLink<Object>("booksLink"   , HomePage.class);
+    	registerLink = new BookmarkablePageLink<Object>("registerLink", LoginPage.class);
+    	loginLink    = new BookmarkablePageLink<Object>("loginLink"   , LoginPage.class);
+    	loginLink    = new BookmarkablePageLink<Object>("logoutLink"   , LoginPage.class);
+    	
+    	if(SecurityUtils.getSubject().getPrincipal() != null){
+    		loginLink.setVisible(false);
+    		registerLink.setVisible(false);
+    	}
+    	
+    	add(homeLink);
+    	add(booksLink);
+    	add(loginLink);
+    	add(registerLink);
+    	
+    }
 
 }
