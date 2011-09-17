@@ -11,6 +11,7 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 
 import br.com.opengti.library.view.page.pub.HomePage;
 import br.com.opengti.library.view.page.pub.LoginPage;
+import br.com.opengti.library.view.page.pub.LogoutPage;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -51,17 +52,23 @@ public class DefaultTemplate extends WebPage {
     	booksLink     = new BookmarkablePageLink<Object>("booksLink"   , HomePage.class);
     	registerLink = new BookmarkablePageLink<Object>("registerLink", LoginPage.class);
     	loginLink    = new BookmarkablePageLink<Object>("loginLink"   , LoginPage.class);
-    	loginLink    = new BookmarkablePageLink<Object>("logoutLink"   , LoginPage.class);
+    	logoutLink    = new BookmarkablePageLink<Object>("logoutLink"   , LogoutPage.class);
     	
     	if(SecurityUtils.getSubject().getPrincipal() != null){
     		loginLink.setVisible(false);
     		registerLink.setVisible(false);
+    		logoutLink.setVisible(true);
+    	}else{
+    		logoutLink.setVisible(false);
+    		loginLink.setVisible(true);
+    		registerLink.setVisible(true);
     	}
     	
     	add(homeLink);
     	add(booksLink);
     	add(loginLink);
     	add(registerLink);
+    	add(logoutLink);
     	
     }
 
