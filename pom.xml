@@ -29,9 +29,23 @@
 			</snapshots>
 		</repository>
 
+
+		<repository>
+			<id>wiquery-maven-repo</id>
+			<name>WiQuery repository</name>
+			<url>https://wiquery.googlecode.com/svn/repo/</url>
+		</repository>
+
+
 	</repositories>
 
 	<dependencies>
+		
+		<dependency>
+			<groupId>org.odlabs.wiquery</groupId>
+			<artifactId>wiquery</artifactId>
+			<version>1.2.3</version>
+		</dependency>
 
 		<dependency>
 			<groupId>commons-logging</groupId>
@@ -118,7 +132,7 @@
 			<artifactId>mail</artifactId>
 			<version>1.4.1</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.google.inject</groupId>
 			<artifactId>guice</artifactId>

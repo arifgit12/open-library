@@ -9,6 +9,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 
+import br.com.opengti.library.view.page.pub.AddBooks;
 import br.com.opengti.library.view.page.pub.BooksPage;
 import br.com.opengti.library.view.page.pub.HomePage;
 import br.com.opengti.library.view.page.pub.LoginPage;
@@ -39,21 +40,21 @@ public class DefaultTemplate extends WebPage {
        
     }
     
-    
-
     public void createMenu(){
     	
     	BookmarkablePageLink<Object> homeLink     = null;
+    	BookmarkablePageLink<Object> addbooksLink     = null;
     	BookmarkablePageLink<Object> booksLink     = null;
     	BookmarkablePageLink<Object> registerLink = null;
     	BookmarkablePageLink<Object> loginLink    = null;
     	BookmarkablePageLink<Object> logoutLink    = null;
     	
-    	homeLink     = new BookmarkablePageLink<Object>("homeLink"    , HomePage.class);
-    	booksLink     = new BookmarkablePageLink<Object>("booksLink"   , BooksPage.class);
+    	homeLink = new BookmarkablePageLink<Object>("homeLink"    , HomePage.class);
+    	booksLink = new BookmarkablePageLink<Object>("booksLink"   , BooksPage.class);
+    	addbooksLink = new BookmarkablePageLink<Object>("addbooksLink"   , AddBooks.class);
     	registerLink = new BookmarkablePageLink<Object>("registerLink", LoginPage.class);
-    	loginLink    = new BookmarkablePageLink<Object>("loginLink"   , LoginPage.class);
-    	logoutLink    = new BookmarkablePageLink<Object>("logoutLink"   , LogoutPage.class);
+    	loginLink = new BookmarkablePageLink<Object>("loginLink"   , LoginPage.class);
+    	logoutLink = new BookmarkablePageLink<Object>("logoutLink"   , LogoutPage.class);
     	
     	if(SecurityUtils.getSubject().getPrincipal() != null){
     		loginLink.setVisible(false);
@@ -66,6 +67,7 @@ public class DefaultTemplate extends WebPage {
     	}
     	
     	add(homeLink);
+    	add(addbooksLink);
     	add(booksLink);
     	add(loginLink);
     	add(registerLink);

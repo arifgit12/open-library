@@ -63,7 +63,7 @@ public class LoginPage extends DefaultTemplate {
         			setResponsePage(getApplication().getHomePage());
         		}catch(Exception e){
         			remove("message");
-        			add(new Label("message","Dados Inválidos"));
+        			add(new Label("message","Dados Invï¿½lidos"));
         		}	
         		
 			}

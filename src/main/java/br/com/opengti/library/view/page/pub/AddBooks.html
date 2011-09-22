@@ -1,0 +1,87 @@
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd" >
+    <head>  
+        <title>Adicionar Livros</title>
+    </head>
+<body>
+<wicket:extend>
+<table width="100%" border="0">
+
+	<tr>
+	
+		<td>
+			<form wicket:id="addform">
+			<table width="250px" border="0" align="center" style="border: 1px dashed #4682B4;font-family: verdana;">
+				
+				
+				
+				<tr class="ui-widget-header">
+				
+					<td colspan=2 style="font-size:12px;">
+					
+						Adicionar Livro
+					
+					</td>
+				
+				</tr>
+				<tr>
+					<td colspan=2><span wicket:id="message"></span></td>
+				</tr>
+				
+				<tr>
+					<td style="font-size:10px;">Ano:</td>
+					<td style="font-size:10px;"><input wicket:id="ano" /></td>
+				</tr>
+				<tr>
+					<td style="font-size:10px;">autor:</td>
+					<td style="font-size:10px;"><input wicket:id="autor" /></td>
+				</tr>	
+				
+				<tr>
+					<td style="font-size:10px;">comentarios:</td>
+					<td style="font-size:10px;"><input wicket:id="comentarios" /></td>
+				</tr>	
+				<tr>
+					<td style="font-size:10px;">edicao:</td>
+					<td style="font-size:10px;"><input wicket:id="edicao" /></td>
+				</tr>	
+				<tr>
+					<td style="font-size:10px;">editora:</td>
+					<td style="font-size:10px;"><input wicket:id="editora" /></td>
+				</tr>	
+				<tr>
+					<td style="font-size:10px;">isbn:</td>
+					<td style="font-size:10px;"><input wicket:id="isbn" /></td>
+				</tr>	
+				<tr>
+					<td style="font-size:10px;">nome:</td>
+					<td style="font-size:10px;"><input wicket:id="nome" /></td>
+				</tr>	
+				<tr>
+					<td style="font-size:10px;">nroPaginas:</td>
+					<td style="font-size:10px;"><input wicket:id="nroPaginas" /></td>
+				</tr>	
+				<tr>
+					<td style="font-size:10px;">origem:</td>
+					<td style="font-size:10px;"><input wicket:id="origem" /></td>
+				</tr>	
+				<tr>
+					<td style="font-size:10px;">qtdDispLocacao:</td>
+					<td style="font-size:10px;"><input wicket:id="qtdDispLocacao" /></td>
+				</tr>	
+
+				
+				<tr>
+					<td colspan=2><input type="submit" /></td>
+				</tr>		
+			
+			</table>
+		</form>
+		</td>
+		
+	</tr>	
+
+</table>
+</wicket:extend>
+
+</body>
+</html>

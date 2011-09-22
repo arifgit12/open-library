@@ -1,33 +1,56 @@
-<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd" >
-    <head>  
-        <title>Wicket Quickstart Archetype Homepage</title>
-    </head>
+<html
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+<title>Wicket Quickstart Archetype Homepage</title>
+</head>
 <body>
-<wicket:extend>
-<table width="100%" border="0" align="center" style="border: 1px dashed #4682B4;font-family: verdana;">
+	<wicket:extend>
+		<table width="100%" border="0" align="center"
+			style="border: 1px dashed #4682B4; font-family: verdana;">
+
+			<tr class="ui-widget-header">
+
+				<td style="font-size: 12px;">Books</td>
+
+			</tr>
+
+			<tr>
+
+				 <td style="font-size: 10px;">
+			 		<label for="name5">Name:</label>
+			 	</td>
+			 	
+			 	<td style="font-size: 10px;">
+			 		<label for="name5">Publisher:</label>
+			 	</td>
+			 	
+			 	<td style="font-size: 10px;">
+			 		<label for="name5">View Book:</label>
+			 	</td>
+
+			</tr>
+
 			
-				<tr class="ui-widget-header">
-				
-					<td style="font-size:12px;">
-					
-						Books
-					
-					</td>
-				
-				</tr>
-				
-				<tr>
-				
-					<td style="font-size:10px;">
-					
-						Lista de Livros
-					
-					</td>
-				
-				</tr>
+			 <tr wicket:id="listview">
 			
-			</table>
-</wicket:extend>
+			 
+			 
+			    <td style="font-size: 10px;">
+			    	<span wicket:id="nome"></span>
+			    </td>
+			   	
+			   	<td style="font-size: 10px;">
+			   		 <span wicket:id="editora"></span>
+			    </td>
+			    <td style="font-size: 10px;">
+			   		<a wicket:id="add" href="#">View</a>
+			    </td>
+			  </tr>
+			
+
+
+		</table>
+	</wicket:extend>
 
 </body>
 </html>
